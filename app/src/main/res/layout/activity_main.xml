@@ -14,17 +14,16 @@
         <!-- Table Heading -->
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:background="@android:color/holo_green_dark">
 
             <TextView
+                android:id="@+id/authors"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
                 android:padding="10sp"
-                android:text="@string/col1"
+                android:text="@string/s1col1"
                 android:textColor="@android:color/white"
                 android:textSize="14sp" />
 
@@ -34,19 +33,10 @@
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
                 android:padding="10sp"
-                android:text="@string/col2"
+                android:text="@string/s1col2"
                 android:textColor="@android:color/white"
                 android:textSize="14sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/col3"
-                android:textColor="@android:color/white"
-                android:textSize="14sp" />
 
         </TableRow>
 
@@ -55,6 +45,7 @@
         <TableRow>
 
             <TextView
+                android:id="@+id/row1Author"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -72,14 +63,6 @@
                 android:text="@string/row1Title"
                 android:textSize="14sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/row1Description"
-                android:textSize="14sp" />
         </TableRow>
 
         <TableRow>
@@ -102,14 +85,6 @@
                 android:text="@string/row2Title"
                 android:textSize="14sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/row2Description"
-                android:textSize="14sp" />
         </TableRow>
 
         <TableRow>
@@ -132,30 +107,34 @@
                 android:text="@string/row3Title"
                 android:textSize="14sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/row3Description"
-                android:textSize="14sp" />
         </TableRow>
 
-        <EditText
-            android:id="@+id/editTextTextPersonName3"
+        <ListView
+            android:id="@+id/listDetails"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name"
+            android:layout_height="120dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"></EditText>
+            app:layout_constraintStart_toStartOf="parent">
+
+        </ListView>
+        <!--<TextView
+            android:id="@+id/displayDetails"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="Details Displayed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"></TextView>-->
 
         <Button
             android:id="@+id/btn_newEntry"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:layout_marginTop="8dp"
             android:text="Add New Entry"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

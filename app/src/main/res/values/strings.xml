@@ -1,15 +1,12 @@
 <resources>
     <string name="app_name">BookAppCA2</string>
-    <string name="col1">Author</string>
-    <string name="col2">Title</string>
-    <string name="col3">Description</string>
+    <string name="s1col1">Author</string>
+    <string name="s1col2">Title</string>
     <string name="row1Author">Author One</string>
     <string name="row1Title">Book One</string>
-    <string name="row1Description">Sample One</string>
     <string name="row2Author">Author Two</string>
     <string name="row2Title">Book Two</string>
-    <string name="row2Description">Sample Two</string>
     <string name="row3Author">Author Three</string>
     <string name="row3Title">Book Three</string>
-    <string name="row3Description">Sample Three</string>
+    <string name="s2col1">Add Entry Below</string>
 </resources>
