@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Table Heading -->
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_green_dark">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col1"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col2"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col3"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+        </TableRow>
+
+        <!-- Table Data -->
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/row1Author"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/row1Title"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/row1Description"
+                android:textSize="14sp" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/row2Author"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/row2Title"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/row2Description"
+                android:textSize="14sp" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/row3Author"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/row3Title"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/row3Description"
+                android:textSize="14sp" />
+        </TableRow>
+
+        <EditText
+            android:id="@+id/editTextTextPersonName3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"></EditText>
+
+        <Button
+            android:id="@+id/btn_newEntry"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Add New Entry"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+    </TableLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
