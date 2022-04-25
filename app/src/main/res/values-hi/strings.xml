@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">बुक ऐप</string>
+    <string name="authors">लेखकों</string>
+    <string name="read">पढ़ना</string>
+    <string name="books">पुस्तकें</string>
+    <string name="search">खोज</string>
+    <string name="changeLang">भाषा बदलें</string>
+</resources>

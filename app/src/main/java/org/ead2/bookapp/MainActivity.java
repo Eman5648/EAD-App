@@ -1,16 +1,24 @@
 package org.ead2.bookapp;
 
+import android.app.Activity;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.sql.Array;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,11 +32,11 @@ public class MainActivity extends AppCompatActivity {
     private TextView bookResult;
     private TextView authorResult;
     private EditText input;
+    String currentLanguage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-/*        loadLocale();*/
         setContentView(R.layout.activity_main);
 
         ActionBar actionBar = getSupportActionBar();
@@ -41,7 +49,9 @@ public class MainActivity extends AppCompatActivity {
         input = findViewById(R.id.input);
         read = findViewById(R.id.read);
         authors = findViewById(R.id.authors);
-        changeLanguage = findViewById(R.id.changeLanguage);
+        changeLanguage = findViewById(R.id.changeLang);
+
+        currentLanguage = Locale.getDefault().getLanguage().toLowerCase(Locale.ROOT);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://ca2bookserver20220425025357.azurewebsites.net/")
@@ -52,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
         changeLanguage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-/*                showChangeLanguageDialog();*/
             }
         });
 
@@ -86,6 +95,33 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call<List<Books>> call, Throwable t) {
                 bookResult.setText(t.getMessage());
             }
+        });
+
+
+        changeLanguage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (currentLanguage.equals("en")) {
+                    currentLanguage = "hi";
+                    Locale newLocale = new Locale(currentLanguage);
+                    Locale.setDefault(newLocale);
+                    Configuration config = new Configuration();
+                    config.locale = newLocale;
+                    getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+                    recreate();
+                    return;
+                }
+                else if (currentLanguage.equals("hi")) {
+                    currentLanguage = "en";
+                    Locale newLocale = new Locale(currentLanguage);
+                    Locale.setDefault(newLocale);
+                    Configuration config = new Configuration();
+                    config.locale = newLocale;
+                    getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+                    recreate();
+                    return;
+                }
+                }
         });
 
 
@@ -261,55 +297,6 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
-
-/*    private void showChangeLanguageDialog() {
-        final String[] listLangs = {"Bosnian", "Russian", "English"};
-        AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
-        mBuilder.setTitle("Choose Language...");
-        mBuilder.setSingleChoiceItems(listLangs, -1, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {*/
-/*                if (i == 0){
-                    // Bosnian
-                    setLocale("bs");
-                    recreate();
-                }
-                else if (i == 1){
-                    // Russian
-                    setLocale("ru");
-                    recreate();
-                }
-                else if (i == 2){
-                    // English
-                    setLocale("en");
-                    recreate();
-                }*/
-
-/*                dialogInterface.dismiss();
-            }
-        });
-
-        AlertDialog mDialog = mBuilder.create();
-
-        mDialog.show();
-    }*/
-
-/*    private void setLocale(String lang) {
-        Locale locale = new Locale(lang);
-        Locale.setDefault(locale);
-        Configuration config = new Configuration();
-        config.locale = locale;
-        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
-        // Save data
-        SharedPreferences.Editor editor = getSharedPreferences("Settings", MODE_PRIVATE).edit();
-        editor.putString("My_Lang", lang);
-        editor.apply();
-    }*/
-
-/*    public void loadLocale() {
-        SharedPreferences prefs = getSharedPreferences("Settings", Activity.MODE_PRIVATE);
-        String language = prefs.getString("My_Lang", "");
-        setLocale(language);*/
 
     }
 }
