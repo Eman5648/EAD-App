@@ -112,10 +112,10 @@ public class MainActivity extends AppCompatActivity {
 
                         for (Authors allAuthors : authors) {
                             String content = "";
-                            content += allAuthors.getAuthorID() + ", ";
-                            content += allAuthors.getAuthorName() + ", ";
-                            content += allAuthors.getAge() + ", ";
-                            content += allAuthors.getDob() + "\n\n";
+                            content += "ID: " + allAuthors.getAuthorID() + ", ";
+                            content += "Name: " + allAuthors.getAuthorName() + ", ";
+                            content += "Age: " + allAuthors.getAge() + ", ";
+                            content += "DOB: " + allAuthors.getDob() + "\n\n";
 
                             authorResult.append(content);
                             authorResult.setMovementMethod(new ScrollingMovementMethod());
@@ -151,11 +151,11 @@ public class MainActivity extends AppCompatActivity {
 
                         for (Books books1 : books) {
                             String content = "";
-                            content += books1.getBookID() + " ";
-                            content += books1.getBookName() + ", ";
-                            content += books1.getReview() + ", ";
-                            content += books1.getPrice() + ", ";
-                            content += books1.getGenre() + ", ";
+                            content += "ID:" + books1.getBookID() + ", ";
+                            content += "Name: " + books1.getBookName() + ", ";
+                            content += "Review: " + books1.getReview() + ", ";
+                            content += "Price: €" + books1.getPrice() + ", ";
+                            content += "Genre: " + books1.getGenre() + ", ";
                             content += "Reads: " + books1.getRead() + "\n\n";
 
                             bookResult.append(content);
