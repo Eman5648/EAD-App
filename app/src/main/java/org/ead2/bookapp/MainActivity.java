@@ -68,18 +68,13 @@ public class MainActivity extends AppCompatActivity {
         // Callback
         Call<List<Books>> call = jsonPlaceHolderAPI.getBooks();
         call.enqueue(new Callback<List<Books>>() {
-            // Checks if successful and displays
             @Override
             public void onResponse(Call<List<Books>> call, Response<List<Books>> response) {
                 if (!response.isSuccessful()) {
                     bookResult.setText("Code: " + response.code());
                     return;
                 }
-
-                // Gets JSON Objects
                 List<Books> books = response.body();
-
-                // Iterates through each JSON item
                 for (Books books1 : books) {
                     String content = "";
                     content += books1.getBookName() + ", ";
@@ -90,14 +85,13 @@ public class MainActivity extends AppCompatActivity {
                     bookResult.setMovementMethod(new ScrollingMovementMethod());
                 }
             }
-            // Checks if unsuccessful and displays error
             @Override
             public void onFailure(Call<List<Books>> call, Throwable t) {
                 bookResult.setText(t.getMessage());
             }
         });
 
-
+        // Functionality for changing language
         changeLanguage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -124,8 +118,7 @@ public class MainActivity extends AppCompatActivity {
                 }
         });
 
-
-        //get api/books
+        // Get list of authors
         authors.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -162,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //get api/books by filter
+        // Get list of books
         books.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -178,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
                             return;
                         }
 
-                        // Puts JSON Objects inside collection & iterates through each item for BOOK DISPLAY
+                        // Puts JSON Objects inside collection & iterates through each item for bookResult
                         List<Books> books = response.body();
 
                         for (Books books1 : books) {
@@ -194,7 +187,6 @@ public class MainActivity extends AppCompatActivity {
                             bookResult.setMovementMethod(new ScrollingMovementMethod());
                         }
                     }
-                    // Error handling
                     @Override
                     public void onFailure(Call<List<Books>> call, Throwable t) {
                         bookResult.setText(t.getMessage());
@@ -203,6 +195,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Search functionality for books
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -210,15 +203,12 @@ public class MainActivity extends AppCompatActivity {
                 authorResult.setText("");
                 Call<List<Books>> callBookByName = jsonPlaceHolderAPI.getBookByName(input.getText().toString());
                 callBookByName.enqueue(new Callback<List<Books>>() {
-                    // Collection displays if successful
                     @Override
                     public void onResponse(Call<List<Books>> callBookByName, Response<List<Books>> response) {
                         if (!response.isSuccessful()) {
                             input.setText("Code: " + response.code());
                             return;
                         }
-
-                        // Puts JSON Objects inside collection & iterates through each item for book search
                         List<Books> books = response.body();
 
                         for (Books books1 : books) {
@@ -234,7 +224,6 @@ public class MainActivity extends AppCompatActivity {
                             bookResult.setMovementMethod(new ScrollingMovementMethod());
                         }
                     }
-                    // Checks if unsuccessful and displays error
                     @Override
                     public void onFailure(Call<List<Books>> callBookByName, Throwable t) {
                         input.setText(t.getMessage());
@@ -243,6 +232,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Read Functionality to increment "Reads" count
         read.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -258,16 +248,13 @@ public class MainActivity extends AppCompatActivity {
                             return;
                         }
                     }
-                    // Checks if unsuccessful and displays error
                     @Override
                     public void onFailure(Call<List<Books>> readBook, Throwable t) {
                         input.setText(t.getMessage());
                     }
                 });
-                //
                 Call<List<Books>> call = jsonPlaceHolderAPI.getBooks();
                 call.enqueue(new Callback<List<Books>>() {
-                    // Checks if successful and displays
                     @Override
                     public void onResponse(Call<List<Books>> call, Response<List<Books>> response) {
                         if (!response.isSuccessful()) {
@@ -275,10 +262,7 @@ public class MainActivity extends AppCompatActivity {
                             return;
                         }
 
-                        // Gets JSON Objects
                         List<Books> books = response.body();
-
-                        // Iterates through each JSON item
                         for (Books books1 : books) {
                             String content = "";
                             content += books1.getBookName() + ", ";
@@ -289,7 +273,6 @@ public class MainActivity extends AppCompatActivity {
                             bookResult.setMovementMethod(new ScrollingMovementMethod());
                         }
                     }
-                    // Checks if unsuccessful and displays error
                     @Override
                     public void onFailure(Call<List<Books>> call, Throwable t) {
                         bookResult.setText(t.getMessage());
@@ -297,6 +280,5 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
-
     }
 }

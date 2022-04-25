@@ -18,5 +18,4 @@ public class Authors {
     public int getAge() { return age; }
 
     public String getDob() {return dob; }
-
 }
